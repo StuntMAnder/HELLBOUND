@@ -1,14 +1,16 @@
 # HELLBOUND Art Integration
 
-## Approved reference sources
-- `animation-reference.webp`: the first supplied reference sheet. Use its masked Phantom design (helmet/face fully covered) as the canonical Phantom reference.
-- `character-reference.webp`: the second supplied character sheet. Use Hank and Reaper references from this sheet; do **not** use its unmasked Phantom face.
+## Uploaded reference sources
+- `b0313f06-a6ba-4e09-9a32-348426af1e92.png`: first uploaded sheet. It contains Reaper and Phantom character studies plus labeled pose/effect rows. Preserve the covered Phantom helmet design as the canonical reference.
+- `b570b74c-a395-43eb-87c3-7aa79a01e744.png`: second uploaded sheet. Use its Hank and Reaper designs as references. Do not use its unmasked Phantom face.
 
-## Animation categories visible in the supplied sheet
-Stand, walk, crouch, guard, dash, jump, attack, grab, hit, and knockdown, plus character-specific attack/effect studies.
+## Animation categories shown
+Stand, walk, crouch, guard, dash, jump, attack, grab, hit, and knockdown, with character-specific attack and effect studies.
 
-## Integration notes
-The current browser build still uses procedural stand-ins in the match scene. The reference images are design/animation guides, not yet clean transparent frame atlases. Before using them as in-game sprites, each pose must be separated into its own transparent frame and arranged into a measured atlas. Avoid cropping the labels, neighboring poses, or panel backgrounds into the character frames.
+## Current implementation — Build 0.5
+The browser game now has state-driven procedural animation presentation for idle, walk, crouch, guard, jump, attack, and hit states. Crouch controls are enabled: P1 uses S and P2 uses Down Arrow. Existing opponent-relative facing, attacks, health, meter, and match flow remain in place.
+
+The uploaded sheets are visual reference boards, not clean transparent sprite atlases. Their poses sit on detailed panel backgrounds and include labels and neighboring artwork. They have **not** been cut into production sprite frames or integrated as sprite atlases yet; the current match fighters are still rendered procedurally. The next art-production step is to isolate individual poses, clean their backgrounds, and build measured per-character atlases before replacing the procedural drawings.
 
 ## Facing direction
-The game uses opponent-relative horizontal facing. The same frame is mirrored horizontally when a fighter turns; attack direction and effects should follow that facing value.
+Fighters face their opponents. Character frames and attack effects should mirror consistently with the fighter's facing direction.
